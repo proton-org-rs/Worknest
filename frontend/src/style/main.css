@@ -1,0 +1,61 @@
+:root{
+  --dark: hsl(0 0% 5%);
+  --background: hsl(0 0% 10%);
+  --text: hsl(0 0% 85%);
+  --highlight: hsl(0 0% 95%);
+  --dimmed: hsl(0 0% 40%);
+}
+
+/* Global reset & box-sizing */
+* { box-sizing: border-box; }
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 { color: var(--highlight); margin: 0 0 12px 0; }
+
+/* Form controls */
+input, button, textarea, select {
+  font-family: inherit;
+  color: inherit;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+}
+
+button { background-color: rgba(255,255,255,0.06); color: var(--text); }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Layout helpers for auth pages */
+.center-container { min-height: 80vh; display: flex; align-items: center; justify-content: center; }
+.center-box { text-align: center; }
+.btn { margin: 8px; padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: rgba(255,255,255,0.06); color: var(--text); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; }
+
+.form { width: 320px; }
+.form h2 { margin: 0 0 12px 0; color: var(--highlight); }
+.form-group { margin-bottom: 8px; display: flex; flex-direction: column; gap: 6px; }
+.input { width: 100%; padding: 8px; background: transparent; border: 1px solid rgba(255,255,255,0.08); color: inherit; border-radius: 4px; }
+.submit-btn { padding: 8px 16px; margin-top: 8px; }
+.back-link { margin-top: 12px; display: inline-block; color: var(--dimmed); text-decoration: none; }
+
+/* Header & Footer */
+.site-header { background: rgba(0,0,0,0.12); padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,0.03); }
+.site-header-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-weight: 700; color: var(--highlight); }
+.site-header nav { display: flex; gap: 12px; align-items: center; }
+.nav-link { color: var(--text); text-decoration: none; padding: 6px 10px; }
+.nav-greet { color: var(--highlight); margin-right: 8px; }
+.nav-logout { padding: 6px 10px; }
+
+.site-footer { margin-top: 32px; padding: 14px 16px; border-top: 1px solid rgba(255,255,255,0.03); background: rgba(0,0,0,0.06); }
+.site-footer-inner { max-width: 960px; margin: 0 auto; color: var(--dimmed); }

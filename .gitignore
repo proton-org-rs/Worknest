@@ -3,6 +3,9 @@ backend/venv/
 backend/__pycache__/
 backend/*.pyc
 backend/instance/
+backend/app/__pycache__
+backend/app/__pycache__/*.pyc
+*.pyc
 
 # Node
 frontend/node_modules/

@@ -1,9 +1,9 @@
 :root{
-  --dark: hsl(0 0 5%);
-  --background: hsl(0 0 10%);
-  --text: hsl(0 0 85%);
-  --highlight: hsl(0 0 95%);
-  --dimmed: hsl(0 0 40%);
+  --dark: hsl(0 0% 5%);
+  --background: hsl(0 0% 10%);
+  --text: hsl(0 0% 85%);
+  --highlight: hsl(0 0% 95%);
+  --dimmed: hsl(0 0% 40%);
 }
 
 body{
@@ -12,8 +12,6 @@ body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--background);
   color: var(--text);
-
-  h1{
-    color: var(--highlight);
-  }
 }
+
+h1 { color: var(--highlight); }

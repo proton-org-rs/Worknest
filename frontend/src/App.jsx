@@ -1,23 +1,31 @@
-import './style/base.css';
+import './style/main.css';
 
-import { useEffect, useState } from "react";
-
+// React Router koristimo za upravljanje stranicama (routama) u SPA aplikaciji.
+// `BrowserRouter` obezbeđuje istoriju URL-ova, `Routes` i `Route` definišu mape putanja.
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Landing from './pages/Landing';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Greet from './pages/Greet';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:5000/hello")
-      .then(res => res.json())
-      .then(data => setMessage(data.message))
-      .catch(err => console.error("Greška:", err));
-  }, []);
-
+  // Ovde definišemo koje komponente (stranice) se prikazuju za koje putanje.
+  // Primer: pristupom na `/login` prikazaće se komponenta `Login`.
   return (
-    <div style={{ margin: "40px", fontSize: "20px" }}>
-      <h1>React + Flask demo</h1>
-      <p>{message}</p>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <main style={{ maxWidth: 960, margin: '24px auto', padding: '0 16px' }}>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/greet/:email" element={<Greet />} />
+        </Routes>
+      </main>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
