@@ -11,6 +11,6 @@ def create_app():
 
     app.register_blueprint(api)
 
-    EVENTS = []  # replace with DB later
+    RESERVATIONS = []  # replace with DB later
 
     return app
