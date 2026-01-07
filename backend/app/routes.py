@@ -1,16 +1,18 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
+import uuid
 
 api = Blueprint("api", __name__)
+RESERVATIONS = []
 
 @api.route("/hello")
 def hello():
     return jsonify({"message": "Pozdrav sa Flask backend-a!"})
 
-@api.route('/api/reservations-calendar', methods=['GET'])
+@api.route('/reservations-calendar', methods=['GET'])
 def get_reservations():
     return jsonify(RESERVATIONS)
 
-@api.route('/api/reservations-calendar', methods=['POST'])
+@api.route('/reservations-calendar', methods=['POST'])
 def create_reservation():
     data = request.json
     reservation  = {
@@ -19,5 +21,5 @@ def create_reservation():
         "start": data["start"],
         "end": data["end"]
     }
-    RESERVATIONS.append(reservation )
-    return jsonify(reservation ), 201
+    RESERVATIONS.append(reservation)
+    return jsonify(reservation), 201

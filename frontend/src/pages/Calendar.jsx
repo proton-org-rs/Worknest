@@ -8,7 +8,7 @@ export default function CalendarPage() {
     const [reservations, setReservations] = useState([])
 
     useEffect(() => {
-        fetch('/api/reservations-calendar')
+        fetch('/reservations-calendar')
         .then(res => res.json())
         .then(data => setReservations(data))
     }, [])
@@ -23,7 +23,7 @@ export default function CalendarPage() {
             end: selectInfo.endStr
         }
 
-        fetch('http://localhost:3000/api/reservations-calendar', {
+        fetch('/reservations-calendar', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newReservation)

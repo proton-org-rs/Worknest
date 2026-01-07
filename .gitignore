@@ -1,16 +1,35 @@
 # Python
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
 backend/venv/
-backend/__pycache__/
-backend/*.pyc
 backend/instance/
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
 
 # Node
-frontend/node_modules/
+node_modules/
 frontend/dist/
 frontend/build/
+.npm
+.eslintcache
+*.tsbuildinfo
 
 # Env files
+.env
 *.env
+frontend/.env
+backend/.env
+
+# Cache
+.cache/
+*.cache
+.parcel-cache/
 
 # OS
 .DS_Store
@@ -18,3 +37,10 @@ Thumbs.db
 
 # Logs
 *.log
+npm-debug.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
