@@ -1,5 +1,6 @@
 import './style/base.css';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Calendar from './pages/Calendar'
 import { useEffect, useState } from "react";
 
 
@@ -14,10 +15,11 @@ function App() {
   }, []);
 
   return (
-    <div style={{ margin: "40px", fontSize: "20px" }}>
-      <h1>React + Flask demo</h1>
-      <p>{message}</p>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/reservations-calendar" element={<Calendar />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
