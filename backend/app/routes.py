@@ -101,6 +101,6 @@ def create_reservation():
         "id": reservation.id,
         "start_time": reservation.start_time.isoformat(),
         "duration": reservation.duration,
-        "room_id": reservation.room_id
+        "room_id": reservation.room_id,
         "creator_id": reservation.user_id,
     }, 201
