@@ -59,7 +59,7 @@ export default function CalendarPage() {
         slotMinTime="06:00:00"       
         slotMaxTime="22:00:00"
         selectable
-        editable
+        editable={false}
         firstDay="1"
         events={reservations}
         select={handleDateSelect}
