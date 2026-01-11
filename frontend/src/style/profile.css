@@ -16,6 +16,14 @@
   margin-bottom: 20px;
 }
 
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
 .projects {
   display: flex;
   gap: 20px;
