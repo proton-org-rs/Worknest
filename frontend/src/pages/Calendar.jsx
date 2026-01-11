@@ -14,13 +14,18 @@ export default function CalendarPage() {
     }, [])
 
     const handleDateSelect = (selectInfo) => {
-        const title = prompt('Task name:')
-        if (!title) return
+        const roomNumber = prompt('Room number:')
+        if (!roomNumber) return
+
+        const creatorEmail = prompt('Creator email:')
+        if (!creatorEmail) return
 
         const newReservation = {
             title, 
-            start: selectInfo.startStr,
-            end: selectInfo.endStr
+            start_time: selectInfo.startStr,
+            duration: selectInfo.duration,
+            room_number: roomNumber,
+            creator_email: creatorEmail
         }
 
         fetch('/reservations-calendar', {
@@ -31,7 +36,7 @@ export default function CalendarPage() {
         .then(res => res.json())
         .then(saved => {
             setReservations(prev => [...prev, saved])
-            alert(`Saved new event: ${saved.title} ${saved.startStr} - ${saved.endStr}`)
+            alert(`Saved new reservation in ${saved.room_number} starting at ${saved.start_time} by ${saved.creator_email}`)
         })
         .catch(err => {
             console.error('Error saving event', err)
