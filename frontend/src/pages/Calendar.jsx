@@ -28,15 +28,7 @@ export default function CalendarPage() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newReservation)
         })
-        .then(async res => {
-            
-            // For debugging
-            // (creating a new reservation throws an error)
-
-            const text = await res.text()
-            alert('Server response: '+text)  
-            return JSON.parse(text)                 
-        })
+        .then(res => res.json())
         .then(saved => {
             setReservations(prev => [...prev, saved])
             alert(`Saved new event: ${saved.title} ${saved.startStr} - ${saved.endStr}`)
