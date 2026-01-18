@@ -19,7 +19,7 @@ def create_app():
     db.init_app(app)
     with app.app_context():
         from . import models
-        from .routes import api
+        from .routes.user import api
 
         # Kreira sve tabele definisane u modelima (ako već ne postoje)
         db.create_all()

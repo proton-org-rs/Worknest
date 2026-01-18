@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request, send_from_directory
-from .models import User
-from .extensions import db
+from ..models import User
+from ..extensions import db
 from flask import current_app
 import os
 import uuid
