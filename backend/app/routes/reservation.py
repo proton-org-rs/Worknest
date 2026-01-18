@@ -5,10 +5,10 @@ from flask import current_app
 import os
 import uuid
 
-#api = Blueprint("api", __name__)
+reservation_bp = Blueprint("reservation", __name__)
 
 
-@api.route('/reservations-calendar', methods=['GET'])
+@reservation_bp.route('/calendar', methods=['GET'])
 def get_reservations():
     reservations = Reservation.query.all()
 
@@ -23,7 +23,7 @@ def get_reservations():
         for r in reservations
     ])
 
-@api.route('/reservations-calendar', methods=['POST'])
+@reservation_bp.route('/calendar', methods=['POST'])
 def create_reservation():
 
     data = request.get_json() or {}

@@ -8,7 +8,7 @@ export default function ProfilePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/api/user/1")
+    fetch("http://127.0.0.1:5000/user/1")
       .then(res => {
         if (!res.ok) {
           throw new Error("Failed to load user");

@@ -19,11 +19,10 @@ def create_app():
     db.init_app(app)
     with app.app_context():
         from . import models
-        from .routes.user import api
+        from .routes import register_blueprints
 
         # Kreira sve tabele definisane u modelima (ako već ne postoje)
         db.create_all()
-
-        app.register_blueprint(api, url_prefix="/api")
+        register_blueprints(app)
 
     return app

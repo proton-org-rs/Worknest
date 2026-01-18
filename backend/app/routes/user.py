@@ -6,10 +6,10 @@ import os
 import uuid
 
 
-api = Blueprint("api", __name__)
+user_bp = Blueprint("user", __name__)
 
 
-@api.route("/user/<int:user_id>", methods=["GET"])
+@user_bp.route("/user/<int:user_id>", methods=["GET"])
 def get_user(user_id):
     user = User.query.get_or_404(user_id)
 
@@ -29,7 +29,7 @@ def get_user(user_id):
     })
 
 
-@api.route("/user/<int:user_id>", methods=["PUT"])
+@user_bp.route("/user/<int:user_id>", methods=["PUT"])
 def update_user(user_id):
     user = User.query.get_or_404(user_id)
     data = request.json
@@ -40,7 +40,7 @@ def update_user(user_id):
     db.session.commit()
     return jsonify(user.to_dict())
 
-@api.route("/user/<int:user_id>/image", methods=["POST"])
+@user_bp.route("/user/<int:user_id>/image", methods=["POST"])
 def upload_image(user_id):
     user = User.query.get_or_404(user_id)
 
@@ -66,13 +66,13 @@ def upload_image(user_id):
     return jsonify({"image": filename}), 200
 
 
-@api.route("/uploads/<filename>")
+@user_bp.route("/uploads/<filename>")
 def get_image(filename):
     return send_from_directory(
         current_app.config["UPLOAD_FOLDER"], filename
     )
 
-@api.route("/user/<int:user_id>/image", methods=["DELETE"])
+@user_bp.route("/user/<int:user_id>/image", methods=["DELETE"])
 def delete_profile_image(user_id):
     user = User.query.get_or_404(user_id)
 

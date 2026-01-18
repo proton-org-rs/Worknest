@@ -35,7 +35,7 @@ export default function EditProfilePage() {
  const avatarUrl = selectedImage
   ? URL.createObjectURL(selectedImage)
   : currentImage
-    ? `http://127.0.0.1:5000/api/uploads/${currentImage}`
+    ? `http://127.0.0.1:5000/uploads/${currentImage}`
     : "Worknest/frontend/public/avatar_default.jpg";
 
   // -------------------------------
