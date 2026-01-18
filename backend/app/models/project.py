@@ -5,20 +5,19 @@ class Project(db.Model):
     __tablename__ = "projects"
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String, nullable=False)
-    description = db.Column(db.String)
-    estimated_duration = db.Column(db.String)  # npr. "2 meseca"
+    title = db.Column(db.String(150), nullable=False)
+    description = db.Column(db.Text, nullable=True)
+    estimated_duration = db.Column(db.String)  # e.g. "2 months"
+    status = db.Column(db.String(20), default="active")  # active / finished
 
-    def set_description(self, description: str) -> None:
-        self.description = description
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    def set_estimated_duration(self, duration: str) -> None:
-        self.estimated_duration = duration
-
-    def to_dict(self) -> dict:
+    def to_dict(self):
         return {
             "id": self.id,
             "title": self.title,
             "description": self.description,
             "estimated_duration": self.estimated_duration,
+            "status": self.status,
         }
